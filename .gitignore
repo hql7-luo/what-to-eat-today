@@ -1,0 +1,25 @@
+# dependencies
+/node_modules
+/.pnpm-store
+/.pnp
+.pnp.*
+
+# tests and builds
+/coverage
+/.next
+/out
+
+# local files
+.DS_Store
+*.log
+*.db
+
+# environment variables
+.env*
+
+# Vercel
+.vercel
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts

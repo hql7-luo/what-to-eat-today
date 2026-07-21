@@ -1,5 +1,7 @@
 import type { Dish } from "@/types";
 
+import { prefixWithBasePath } from "@/lib/base-path";
+
 type FoodImageAsset = {
   src: string;
   objectPosition: "center";
@@ -72,6 +74,11 @@ export type FoodImageKey = keyof typeof FOOD_IMAGE_ASSETS;
 export type FoodVisual = Pick<Dish, "id" | "name" | "category">;
 
 export const FOOD_IMAGE_FALLBACK: FoodImageKey = "rice-bowl";
+
+export function resolveFoodImageAsset(key: FoodImageKey) {
+  const asset = FOOD_IMAGE_ASSETS[key];
+  return { ...asset, src: prefixWithBasePath(asset.src) };
+}
 
 export const DISH_IMAGE_KEYS = {
   "dish-001": "mushroom-chicken-rice",
@@ -156,5 +163,5 @@ export function resolveFoodImage(food: FoodVisual) {
   const key = DISH_IMAGE_KEYS[food.id as keyof typeof DISH_IMAGE_KEYS]
     ?? CATEGORY_IMAGE_KEYS[food.category as keyof typeof CATEGORY_IMAGE_KEYS]
     ?? FOOD_IMAGE_FALLBACK;
-  return { key, ...FOOD_IMAGE_ASSETS[key] };
+  return { key, ...resolveFoodImageAsset(key) };
 }

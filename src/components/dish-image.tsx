@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 
-import { FOOD_IMAGE_ASSETS, FOOD_IMAGE_FALLBACK, resolveFoodImage, type FoodVisual } from "@/lib/food-image";
+import { FOOD_IMAGE_FALLBACK, resolveFoodImage, resolveFoodImageAsset, type FoodVisual } from "@/lib/food-image";
 
 type DishImageVariant = "compact" | "hero" | "thumbnail";
 
@@ -34,7 +34,7 @@ export function DishImage({
 }) {
   const resolved = resolveFoodImage(dish);
   const [failedSrc, setFailedSrc] = useState<string>();
-  const fallback = FOOD_IMAGE_ASSETS[FOOD_IMAGE_FALLBACK];
+  const fallback = resolveFoodImageAsset(FOOD_IMAGE_FALLBACK);
   const asset = failedSrc === resolved.src ? fallback : resolved;
   const showLabel = variant !== "thumbnail";
 

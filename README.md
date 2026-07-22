@@ -1,5 +1,7 @@
 # 今天吃什么 · What to Eat Today
 
+[Live Demo](https://hql7-luo.github.io/what-to-eat-today/) · [GitHub Repository](https://github.com/hql7-luo/what-to-eat-today) · Version: `v1.0.0`
+
 一个全国通用、完全不依赖定位、地图或外卖 API 的饮食决策工具。回答 5 个问题，从 92 道本地菜品中生成约 10 个候选，再通过横向“开箱”动画决定今天吃什么。
 
 > 少做选择，快速开饭。
@@ -77,7 +79,7 @@ flowchart LR
 
 ## 美食视觉素材
 
-候选池、开箱、结果页、收藏和历史统一使用项目内的半真实美食图，不依赖外部图片接口或来源不明的网络照片。
+候选池、开箱、结果页、收藏和历史统一使用项目内的 AI 生成代表性半真实美食图，不依赖外部图片接口或来源不明的网络照片。这些图片用于表达菜品类型和统一产品视觉，不是任何具体餐厅的真实菜品照片。
 
 - `public/food/dishes/`：高频菜品独立图
 - `public/food/categories/`：分类兜底图
@@ -159,7 +161,14 @@ pnpm build
 
 ## 部署
 
-这是一个无后端业务服务、无环境变量的 Next.js 项目。部署平台只需安装依赖并运行 `pnpm build`。所有用户个性化数据保存在各自浏览器中。
+项目使用 Next.js 静态导出并通过 GitHub Actions 免费部署到 GitHub Pages：
+
+- 线上地址：[https://hql7-luo.github.io/what-to-eat-today/](https://hql7-luo.github.io/what-to-eat-today/)
+- 工作流：`.github/workflows/pages.yml`
+- 构建产物：`out/`
+- GitHub Pages 项目子路径：`/what-to-eat-today`
+
+项目没有 API 路由、服务端业务、数据库或环境变量。所有用户个性化数据都只保存在各自浏览器的 localStorage 中。
 
 ## License
 

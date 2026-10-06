@@ -5,9 +5,9 @@
 ## 开始之前
 
 1. Fork 仓库并从 `main` 创建功能分支。
-2. 使用 Node.js 20.9+ 与 pnpm 11。
-3. 运行 `pnpm install`。
-4. 从 `.env.example` 复制本地环境变量；不要提交任何真实 API Key。
+2. 使用 Node.js 22.13+（22 LTS）或 24 LTS 与 pnpm 11.24.0（`.nvmrc` 默认 Node.js 24）。
+3. 运行 `pnpm install --frozen-lockfile`。
+4. 项目无需环境变量或 API Key，直接运行 `pnpm dev`。
 
 ## 开发约定
 

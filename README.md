@@ -1,6 +1,6 @@
 # 今天吃什么 · What to Eat Today
 
-[Live Demo](https://hql7-luo.github.io/what-to-eat-today/) · [GitHub Repository](https://github.com/hql7-luo/what-to-eat-today) · Version: `v1.0.0`
+[Live Demo](https://hql7-luo.github.io/what-to-eat-today/) · [GitHub Repository](https://github.com/hql7-luo/what-to-eat-today) · Version: `v0.1.0`
 
 一个全国通用、完全不依赖定位、地图或外卖 API 的饮食决策工具。回答 5 个问题，从 92 道本地菜品中生成约 10 个候选，再通过横向“开箱”动画决定今天吃什么。
 
@@ -100,8 +100,8 @@ Zustand 持久化数据带有明确版本号和字段校验。当前版本为 v3
 
 ## 技术栈
 
-- Next.js 16.2 App Router
-- React 19.2 + TypeScript
+- Next.js 16.3 App Router
+- React 19 + TypeScript
 - Tailwind CSS 4.3
 - Motion for React 12
 - Zustand 5 + localStorage
@@ -110,10 +110,10 @@ Zustand 持久化数据带有明确版本号和字段校验。当前版本为 v3
 
 ## 本地运行
 
-要求 Node.js 20.9+，推荐 pnpm 11。
+要求 Node.js 22.13+（22 LTS）或 24 LTS，并使用 `package.json` 指定的 pnpm 11.24.0。`.nvmrc` 默认选择 Node.js 24；CI 检查 Node.js 22 和 24。
 
 ```bash
-pnpm install
+pnpm install --frozen-lockfile
 pnpm dev
 ```
 
@@ -167,6 +167,8 @@ pnpm build
 - 工作流：`.github/workflows/pages.yml`
 - 构建产物：`out/`
 - GitHub Pages 项目子路径：`/what-to-eat-today`
+
+`pnpm build` 生成静态文件，不能用 `next start` 启动。日常本地体验使用 `pnpm dev`；预览生产产物时，请让静态文件服务器把 `out/` 挂载到 `/what-to-eat-today/`。
 
 项目没有 API 路由、服务端业务、数据库或环境变量。所有用户个性化数据都只保存在各自浏览器的 localStorage 中。
 

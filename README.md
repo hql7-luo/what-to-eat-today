@@ -12,7 +12,10 @@ A local meal decision tool: five preferences → rule-based candidates → weigh
 
 ## 产品 walkthrough
 
-[![真实产品流程：五项偏好、候选与横向抽取、带理由的推荐、本机历史和收藏](public/screenshots/walkthrough.webp)](public/screenshots/walkthrough.webp)
+<picture>
+  <source media="(max-width: 640px)" srcset="public/screenshots/walkthrough-mobile.webp">
+  <img src="public/screenshots/walkthrough.webp" alt="真实产品流程：五项偏好、候选与横向抽取、带理由的推荐、本机历史和收藏">
+</picture>
 
 当前版本真实界面摘录；点击放大。演示店铺明确标注为虚构，菜品图为项目已有的代表性 AI 素材，均不是具体餐厅照片。[手机单列版](public/screenshots/walkthrough-mobile.webp) · [截图来源与复现](public/screenshots/README.md)
 

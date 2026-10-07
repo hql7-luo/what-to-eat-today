@@ -8,6 +8,8 @@
 /coverage
 /.next
 /out
+/output
+/.playwright-cli
 
 # local files
 .DS_Store

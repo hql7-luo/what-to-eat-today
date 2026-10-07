@@ -1,0 +1,45 @@
+{
+  "implementation_commit": "3546896da4d8874737a580afdd7041d87fc813b4",
+  "captured_at": "2026-10-07T15:38:00-07:00 to 2026-10-07T15:42:00-07:00",
+  "source": "Current local application, clean isolated browser, actual controls and an unmodified weighted draw; UI crops only.",
+  "preferences": {
+    "budget": "20to30",
+    "spice": "mild",
+    "goal": "normal",
+    "partySize": "1",
+    "maxWait": 30
+  },
+  "result": "照烧鸡腿饭",
+  "manual_shop": "演示店铺（虚构）",
+  "privacy": "No real user, shop, restaurant or account records. The shop name and approximate price are explicit fictional demonstration inputs.",
+  "files": [
+    {
+      "path": "01-preferences.webp",
+      "width": 1200,
+      "height": 869,
+      "bytes": 43470,
+      "sha256": "78ff609997d7aa7561f4f076e6ae2f53e50247538c46cbec1d13f37bd5900643"
+    },
+    {
+      "path": "03-roulette.webp",
+      "width": 1200,
+      "height": 836,
+      "bytes": 75106,
+      "sha256": "b191ed486769c59a26a4517168b8a0e88bf25916ae744c546a9d65dc6c81564a"
+    },
+    {
+      "path": "04-result.webp",
+      "width": 1200,
+      "height": 904,
+      "bytes": 114290,
+      "sha256": "de57ebc61a60d27ab95f21a58023ca9320a352addcd066ac7ebfd4e03d435282"
+    },
+    {
+      "path": "05-taste.webp",
+      "width": 1200,
+      "height": 1272,
+      "bytes": 83612,
+      "sha256": "bb3ebe1f7b8e3a78f4ae60ba330f6aac4ee98cd097c83ecfd2fee2169b67aa1c"
+    }
+  ]
+}

@@ -2,11 +2,23 @@
 
 [Live Demo](https://hql7-luo.github.io/what-to-eat-today/) · [GitHub Repository](https://github.com/hql7-luo/what-to-eat-today) · Version: `v0.1.0`
 
-一个全国通用、完全不依赖定位、地图或外卖 API 的饮食决策工具。回答 5 个问题，从 92 道本地菜品中生成约 10 个候选，再通过横向“开箱”动画决定今天吃什么。
+一个把“今天吃什么”变成**偏好筛选 → 可解释加权推荐 → 游戏化抽取**的本地决策工具。回答 5 个问题，从 92 道菜品资料中生成约 10 个候选，得到一份带推荐理由的餐食建议。
 
-> 少做选择，快速开饭。
+A local meal decision tool: five preferences → rule-based candidates → weighted draw → an explained recommendation. No machine learning, location service, or account required.
 
-无需登录、无需环境变量，也不需要任何第三方服务账号。应用只推荐菜品，不推荐附近具体餐厅。
+| 输入 | 我实现的核心流程 | 输出 |
+| --- | --- | --- |
+| 预算、辣度、饮食目标、人数、可接受时间 | 规则筛选与评分 → 候选去重 → 按分数加权抽取 → 横向动画揭晓 | 菜品、推荐理由、确认 / 重抽 / 收藏，以及本机历史 |
+
+## 产品 walkthrough
+
+[![真实产品流程：五项偏好、候选与横向抽取、带理由的推荐、本机历史和收藏](public/screenshots/walkthrough.webp)](public/screenshots/walkthrough.webp)
+
+当前版本真实界面摘录；点击放大。演示店铺明确标注为虚构，菜品图为项目已有的代表性 AI 素材，均不是具体餐厅照片。[手机单列版](public/screenshots/walkthrough-mobile.webp) · [截图来源与复现](public/screenshots/README.md)
+
+**体现的能力**：TypeScript / React 产品实现、可解释业务规则、约束与降级设计、状态持久化、交互设计与自动化测试。
+
+**解决的问题**：把开放式选择缩成少量候选，展示“为什么推荐”，并用本机记录减少近期重复。项目不主张已验证的用户行为改善；无需登录，仅推荐菜品，不提供附近餐厅服务。
 
 ## 核心功能
 
@@ -19,20 +31,6 @@
 - 用户可手动维护常点店铺、常点菜品和大致价格
 - 历史、收藏、口味偏好和常点店铺仅保存在 localStorage
 - 本地半真实美食图与稳定的分类兜底
-
-## 使用流程
-
-```mermaid
-flowchart LR
-  A["欢迎页"] --> B["五项条件选择"]
-  B --> C["约 10 个菜品候选"]
-  C --> D["横向开箱抽取"]
-  D --> E["菜品结果页"]
-  E -->|"就吃这个"| F["保存本地历史"]
-  E -->|"再抽一次 / 不想吃"| D
-  E -->|"复制菜名"| G["自行前往美团搜索"]
-  F --> H["我的口味与常点店铺"]
-```
 
 ## 数据边界
 

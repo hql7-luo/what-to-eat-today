@@ -1,5 +1,5 @@
 {
-  "implementation_commit": "3546896da4d8874737a580afdd7041d87fc813b4",
+  "implementation_commit": "86d9cf18c3c03a43293bb1d9a1f0b760ba087a04",
   "captured_at": "2026-10-07T15:38:00-07:00 to 2026-10-07T15:42:00-07:00",
   "source": "Current local application, clean isolated browser, actual controls and an unmodified weighted draw; UI crops only.",
   "preferences": {

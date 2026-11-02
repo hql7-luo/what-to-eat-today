@@ -6,7 +6,7 @@
 
 A local meal decision tool: five preferences → rule-based candidates → weighted draw → an explained recommendation. No machine learning, location service, or account required.
 
-| 输入 | 我实现的核心流程 | 输出 |
+| 输入 | 核心流程 | 输出 |
 | --- | --- | --- |
 | 预算、辣度、饮食目标、人数、可接受时间 | 规则筛选与评分 → 候选去重 → 按分数加权抽取 → 横向动画揭晓 | 菜品、推荐理由、确认 / 重抽 / 收藏，以及本机历史 |
 
@@ -176,3 +176,7 @@ pnpm build
 ## License
 
 [MIT](./LICENSE)
+
+罗浩绮的独立项目。我确定问题，核对数据和结果，并决定结论；代码实现借助了 AI 工具。
+
+Independent project by Haoqi Luo. I chose the question, checked the data and results, and decided the conclusions. AI coding tools helped with the implementation.

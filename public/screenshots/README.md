@@ -21,3 +21,15 @@
 4. 使用 Pillow 与包含中英文的字体运行 `python scripts/build_walkthrough.py`。可通过 `--font` 指定字体；脚本只组合已有截图。
 
 不需要 GIF；静态图即可说明完整流程，并避免自动播放和较大下载。
+
+## English captures / 英文截图
+
+`walkthrough-en.webp` and `walkthrough-mobile-en.webp` are the English versions of the same four steps, with English-only labels, for English pages. They come from `source/en/`: captures of the English interface (`?lang=en`) from commit `27b2f85`, made the same way as above: a clean browser, the same five preferences (¥20–30, mild, regular, 1 person, 30 minutes), one unmodified weighted draw (it picked Tomato Beef Brisket Rice), the real favorite and "I'll eat this" controls, and an explicitly fictional "Demo shop (fictional)" at about ¥28. `source/en/00-home.webp` is the 1440 × 960 English home screen used for the portfolio card.
+
+The English layout is longer than the Chinese one, so `source/en/crops.json` records crop boxes measured from the page elements at capture time. Rebuild with:
+
+```bash
+python scripts/build_walkthrough.py --lang en
+```
+
+中文截图来自 `86d9cf1`。当时抽取页的浅色文字被白色卡片继承，卡片上的菜名和价格看不清（中文组合图第 2 步可见）；`27b2f85` 已修复，英文截图显示的是修复后的界面。如需更新中文截图，按上面的步骤重新截取即可。

@@ -4,7 +4,7 @@
 
 一个把“今天吃什么”变成**偏好筛选 → 可解释加权推荐 → 游戏化抽取**的本地决策工具。回答 5 个问题，从 92 道菜品资料中生成约 10 个候选，得到一份带推荐理由的餐食建议。
 
-A local meal decision tool: five preferences → rule-based candidates → weighted draw → an explained recommendation. No machine learning, location service, or account required.
+A local meal decision tool: five preferences → rule-based candidates → weighted draw → an explained recommendation. No machine learning, location service, or account required. The interface is available in English and Chinese: use the EN / 中文 button in the header, or open it with `?lang=en` ([English walkthrough](public/screenshots/walkthrough-en.webp)).
 
 | 输入 | 核心流程 | 输出 |
 | --- | --- | --- |
@@ -25,6 +25,7 @@ A local meal decision tool: five preferences → rule-based candidates → weigh
 
 ## 核心功能
 
+- 中英双语界面：页头一键切换；也可用 `?lang=en` / `?lang=zh` 打开，并与个人作品集网站共用语言选择。菜名、分类和推荐理由都有中英文
 - 预算、辣度、饮食目标、用餐人数、可接受时间五步筛选
 - 92 道本地菜品、23 个餐饮分类
 - 可解释的加权推荐、昨天硬排除、2–3 天降权、本轮结果去重
@@ -142,6 +143,7 @@ src/
   data/dishes.ts        92 道本地菜品
   features/store/       Zustand 状态、持久化校验与迁移
   lib/food-image.ts     菜品图片解析与统一兜底
+  lib/i18n/             中英文文案、菜名与分类英文名、推荐理由措辞、语言选择
   lib/recommendation/   推荐、降级与加权抽取
   lib/roulette/         可测试的开箱轨道生成
   types/                共享 TypeScript 类型
@@ -158,7 +160,7 @@ pnpm test
 pnpm build
 ```
 
-测试覆盖昨天排除、2–3 天降权、预算、辣度、饮食目标、本轮排除、候选降级、菜品唯一性、加权抽取、Zustand hydration/迁移/损坏恢复、确认幂等、常点店铺持久化、开箱轨道恢复和全部菜品图片映射。
+测试覆盖中英文文案完整性（92 道菜和 23 个分类都有英文名，推荐理由两种语言都能显示）、语言选择顺序、昨天排除、2–3 天降权、预算、辣度、饮食目标、本轮排除、候选降级、菜品唯一性、加权抽取、Zustand hydration/迁移/损坏恢复、确认幂等、常点店铺持久化、开箱轨道恢复和全部菜品图片映射。
 
 ## 部署
 

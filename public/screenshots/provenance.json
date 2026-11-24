@@ -41,5 +41,71 @@
       "bytes": 83612,
       "sha256": "bb3ebe1f7b8e3a78f4ae60ba330f6aac4ee98cd097c83ecfd2fee2169b67aa1c"
     }
-  ]
+  ],
+  "known_issue": "The Chinese captures above come from 86d9cf1, where the draw page's light text color hid dish names and prices on the white cards; 27b2f85 fixed it. The English captures below show the fix.",
+  "english": {
+    "implementation_commit": "27b2f85",
+    "captured_at": "2026-11-24T04:55:31.812Z",
+    "source": "Static build of 27b2f85 in a clean headless Chromium (1200 x 900 viewport, America/Los_Angeles), ?lang=en, actual controls and one unmodified weighted draw; <main> element captures.",
+    "preferences": {
+      "budget": "20to30",
+      "spice": "mild",
+      "goal": "normal",
+      "partySize": "1",
+      "maxWait": 30
+    },
+    "result": "Tomato Beef Brisket Rice",
+    "manual_shop": "Demo shop (fictional), about ¥28",
+    "home_capture": "00-home.webp is the 1440 x 960 home screen used for the portfolio card.",
+    "crops": "en/crops.json holds crop boxes measured from page elements at capture time; scripts/build_walkthrough.py --lang en uses them.",
+    "files": [
+      {
+        "path": "en/00-home.webp",
+        "width": 1440,
+        "height": 960,
+        "bytes": 73762,
+        "sha256": "034fac7d3ef28fdd44fcc4a44f75d11abea4aa78a4d26ad79ee4c5f9c0c8f3f5"
+      },
+      {
+        "path": "en/01-preferences.webp",
+        "width": 1200,
+        "height": 897,
+        "bytes": 41604,
+        "sha256": "ef0ec3f6a201c69ee327e3ad79cbfeefa7be8003c0b19d103bd1e5ef3d37f157"
+      },
+      {
+        "path": "en/03-roulette.webp",
+        "width": 1200,
+        "height": 836,
+        "bytes": 73956,
+        "sha256": "67c8350d25193206b116d68c03eb17ab4b23975e31b07b5381d804f4d03be3f5"
+      },
+      {
+        "path": "en/04-result.webp",
+        "width": 1200,
+        "height": 904,
+        "bytes": 91920,
+        "sha256": "cfc4191ee0cc8567efb7a5a96ab53df43e1395503e3873bea0f891768ebaa3d9"
+      },
+      {
+        "path": "en/05-taste.webp",
+        "width": 1200,
+        "height": 1338,
+        "bytes": 81106,
+        "sha256": "d2d1c23fc0dad391885263678326da214eea88fd493104828e47d60215744ca4"
+      }
+    ],
+    "outputs": [
+      {
+        "path": "walkthrough-en.webp",
+        "bytes": 155976,
+        "sha256": "a196c4058e173685d22d5cf613d7de11c8a48043f991a94366710eab5b5c835a"
+      },
+      {
+        "path": "walkthrough-mobile-en.webp",
+        "bytes": 149102,
+        "sha256": "724ce06ac6b0acc0452c5e040548509601953735441c5d015672d5fc0ddc36d2"
+      }
+    ]
+  }
 }

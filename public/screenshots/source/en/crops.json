@@ -1,0 +1,79 @@
+{
+ "note": "Crop boxes for scripts/build_walkthrough.py --lang en, measured from the page elements at capture time.",
+ "boxes_measured": {
+  "preferences_card": [
+   152,
+   324,
+   1048,
+   718
+  ],
+  "preferences_footer": [
+   152,
+   746,
+   1048,
+   841
+  ],
+  "history_section": [
+   495,
+   740,
+   1184,
+   922
+  ],
+  "shop_item": [
+   524,
+   589,
+   834,
+   691
+  ],
+  "favorites_label": [
+   524,
+   971,
+   756,
+   991
+  ],
+  "favorite_card": [
+   524,
+   1047,
+   834,
+   1253
+  ]
+ },
+ "crops": {
+  "preferences": [
+   150,
+   323,
+   1050,
+   831
+  ],
+  "roulette": [
+   0,
+   0,
+   1200,
+   774
+  ],
+  "result": [
+   87,
+   142,
+   1113,
+   748
+  ],
+  "history": [
+   495,
+   740,
+   1185,
+   922
+  ],
+  "shop": [
+   525,
+   589,
+   834,
+   691
+  ],
+  "favorites": [
+   525,
+   966,
+   835,
+   1260
+  ]
+ }
+}

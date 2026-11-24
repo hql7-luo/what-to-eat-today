@@ -1,5 +1,9 @@
+"use client";
+
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+
+import { useI18n } from "@/lib/i18n";
 
 export function FlowHeading({
   eyebrow,
@@ -12,12 +16,13 @@ export function FlowHeading({
   description?: string;
   backHref?: string;
 }) {
+  const { t } = useI18n();
   return (
     <div className="mb-7 sm:mb-9">
       {backHref ? (
         <Link href={backHref} className="quiet-button -ml-3 mb-3 w-fit px-3 text-sm">
           <ArrowLeft size={17} aria-hidden="true" />
-          返回
+          {t("back")}
         </Link>
       ) : null}
       <p className="numeric-type mb-2 text-xs font-black uppercase tracking-[0.18em] text-tomato-600">{eyebrow}</p>

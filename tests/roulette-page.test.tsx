@@ -70,4 +70,13 @@ describe("RoulettePage hydration", () => {
     expect(container.querySelectorAll("article")).toHaveLength(50);
     expect(container.textContent).toContain("候选已装入，准备开始抽取");
   });
+
+  it("卡片使用深色文字，不继承抽取页深色背景上的浅色文字", async () => {
+    useAppStore.setState({ hasHydrated: true, candidates });
+    root = createRoot(container);
+    await act(async () => root?.render(<RoulettePage />));
+    const card = container.querySelector("article");
+    expect(card?.className).toContain("text-ink-900");
+    expect(candidates.map((candidate) => candidate.dish.name)).toContain(card?.querySelector("h2")?.textContent);
+  });
 });

@@ -10,6 +10,9 @@ import type {
   SpicePreference,
   TasteProfile,
 } from "@/types";
+import { reasonCode } from "@/lib/i18n/reasons";
+
+export { budgetLabel } from "@/lib/i18n/messages";
 
 const budgetRanges: Record<BudgetOption, [number, number]> = {
   under20: [0, 20],
@@ -75,19 +78,20 @@ function buildReasons(
   preferences: Preferences,
   recentPenalty: boolean,
 ): string[] {
+  // Short codes; src/lib/i18n/reasons.ts words them in the visitor's language.
   const reasons: string[] = [];
   if (preferences.budget !== "any" && budgetDistance(dish.priceRange, preferences.budget) === 0) {
-    reasons.push(`常见价格 ¥${dish.priceRange[0]}–${dish.priceRange[1]}，符合你的预算`);
+    reasons.push(reasonCode.budget(dish.priceRange[0], dish.priceRange[1]));
   }
-  if (preferences.goal === "fat-loss" && dish.fatLossFriendly) reasons.push("更适合今天的减脂目标");
-  if (preferences.goal === "muscle-gain" && dish.muscleGainFriendly) reasons.push("蛋白质搭配更符合增肌目标");
-  if (preferences.goal === "light" && goalMatches(dish, "light")) reasons.push("口味和搭配相对清爽");
-  if (preferences.goal === "indulgent" && goalMatches(dish, "indulgent")) reasons.push("更符合今天想犒劳自己的心情");
+  if (preferences.goal === "fat-loss" && dish.fatLossFriendly) reasons.push(reasonCode.goal("fat-loss"));
+  if (preferences.goal === "muscle-gain" && dish.muscleGainFriendly) reasons.push(reasonCode.goal("muscle-gain"));
+  if (preferences.goal === "light" && goalMatches(dish, "light")) reasons.push(reasonCode.goal("light"));
+  if (preferences.goal === "indulgent" && goalMatches(dish, "indulgent")) reasons.push(reasonCode.goal("indulgent"));
   if (preferences.maxWait !== null && dish.prepTime <= preferences.maxWait) {
-    reasons.push(`通常准备约 ${dish.prepTime} 分钟，符合可接受时间`);
+    reasons.push(reasonCode.wait(dish.prepTime));
   }
-  if (recentPenalty) reasons.push("2–3 天前吃过，已降低推荐权重");
-  if (reasons.length === 0) reasons.push("与当前条件整体匹配，适合作为今天的选择");
+  if (recentPenalty) reasons.push(reasonCode.recent);
+  if (reasons.length === 0) reasons.push(reasonCode.general);
   return reasons.slice(0, 3);
 }
 
@@ -211,14 +215,4 @@ export function selectWeightedCandidate(
     if (cursor <= 0) return candidates[index];
   }
   return candidates[candidates.length - 1];
-}
-
-export function budgetLabel(budget: BudgetOption): string {
-  return {
-    under20: "20 元以内",
-    "20to30": "20–30 元",
-    "30to50": "30–50 元",
-    over50: "50 元以上",
-    any: "预算不限",
-  }[budget];
 }

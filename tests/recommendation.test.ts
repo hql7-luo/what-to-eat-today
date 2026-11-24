@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 
 import { dishes } from "@/data/dishes";
+import { formatReason } from "@/lib/i18n/reasons";
 import { recommendDishes, selectWeightedCandidate } from "@/lib/recommendation";
 import type { HistoryEntry, Preferences } from "@/types";
 
@@ -45,7 +46,7 @@ describe("recommendDishes", () => {
       history: [historyEntry(dish.id, "2026-07-18T12:00:00+08:00")],
     })[0];
     expect(recent.score).toBeLessThan(fresh.score * 0.5);
-    expect(recent.reasons.some((reason) => reason.includes("2–3 天前"))).toBe(true);
+    expect(recent.reasons.some((reason) => formatReason(reason, "zh").includes("2–3 天前"))).toBe(true);
   });
 
   it("预算不匹配时排除或显著降权", () => {

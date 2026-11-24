@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 
 import { FOOD_IMAGE_FALLBACK, resolveFoodImage, resolveFoodImageAsset, type FoodVisual } from "@/lib/food-image";
+import { useI18n } from "@/lib/i18n";
 
 type DishImageVariant = "compact" | "hero" | "thumbnail";
 
@@ -32,6 +33,7 @@ export function DishImage({
   priority?: boolean;
   className?: string;
 }) {
+  const { t, dish: dishLabel, category } = useI18n();
   const resolved = resolveFoodImage(dish);
   const [failedSrc, setFailedSrc] = useState<string>();
   const fallback = resolveFoodImageAsset(FOOD_IMAGE_FALLBACK);
@@ -43,7 +45,7 @@ export function DishImage({
       <Image
         fill
         src={asset.src}
-        alt={`${dish.name}美食展示图`}
+        alt={t("dishImageAlt", { name: dishLabel(dish.name) })}
         sizes={imageSizes[variant]}
         quality={84}
         priority={priority}
@@ -57,7 +59,7 @@ export function DishImage({
         <>
           <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/55 via-black/12 to-transparent" />
           <span className="pointer-events-none absolute bottom-3 left-3 rounded-full border border-white/25 bg-black/28 px-2.5 py-1 text-[10px] font-black tracking-[0.08em] text-white shadow-sm backdrop-blur-sm">
-            {dish.category}
+            {category(dish.category)}
           </span>
         </>
       ) : null}

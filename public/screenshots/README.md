@@ -32,4 +32,4 @@ The English layout is longer than the Chinese one, so `source/en/crops.json` rec
 python scripts/build_walkthrough.py --lang en
 ```
 
-中文截图来自 `86d9cf1`。当时抽取页的浅色文字被白色卡片继承，卡片上的菜名和价格看不清（中文组合图第 2 步可见）；`27b2f85` 已修复，英文截图显示的是修复后的界面。如需更新中文截图，按上面的步骤重新截取即可。
+中文截图来自 `86d9cf1`。当时抽取页的浅色文字被白色卡片继承，卡片上的菜名和价格看不清；`27b2f85` 已修复。`source/03-roulette.webp` 已于 2026-11-24 用修复后的版本（`cfc7d70`）按同样的五项偏好重新截取，并只替换了中文组合图的第 2 步，其他几步仍是原截图（不受这个问题影响）。详见 `provenance.json` 的 `chinese_outputs`。

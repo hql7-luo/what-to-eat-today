@@ -24,8 +24,9 @@
       "path": "03-roulette.webp",
       "width": 1200,
       "height": 836,
-      "bytes": 75106,
-      "sha256": "b191ed486769c59a26a4517168b8a0e88bf25916ae744c546a9d65dc6c81564a"
+      "bytes": 75870,
+      "sha256": "40ad962caa9361b2b2e30f99eddffccc4fc1342b5f263242a9cf45327055b1de",
+      "recaptured": "2026-11-24 from cfc7d70 (after the text-color fix), same five preferences and actual controls, headless Chromium 1200 x 900, America/Los_Angeles, <main> element; Chinese text in WenQuanYi Zen Hei."
     },
     {
       "path": "04-result.webp",
@@ -42,7 +43,7 @@
       "sha256": "bb3ebe1f7b8e3a78f4ae60ba330f6aac4ee98cd097c83ecfd2fee2169b67aa1c"
     }
   ],
-  "known_issue": "The Chinese captures above come from 86d9cf1, where the draw page's light text color hid dish names and prices on the white cards; 27b2f85 fixed it. The English captures below show the fix.",
+  "known_issue": "Resolved. In 86d9cf1 the draw page's light text color hid dish names and prices on the white cards (fixed in 27b2f85). 03-roulette.webp was recaptured after the fix; the other Chinese captures are the original 86d9cf1 ones, which that bug did not affect.",
   "english": {
     "implementation_commit": "27b2f85",
     "captured_at": "2026-11-24T04:55:31.812Z",
@@ -105,6 +106,21 @@
         "path": "walkthrough-mobile-en.webp",
         "bytes": 149102,
         "sha256": "724ce06ac6b0acc0452c5e040548509601953735441c5d015672d5fc0ddc36d2"
+      }
+    ]
+  },
+  "chinese_outputs": {
+    "note": "walkthrough.webp and walkthrough-mobile.webp were updated by pasting the new 03-roulette.webp into panel 2 with the script's own crop and box ((0, 0, 1200, 774) fitted into (850, 270, 678, 444); the phone image reuses that panel at (72, 930)). Everything else is unchanged, because the original title font (Arial Unicode) is not available on the machine that made this update. Running build_walkthrough.py with that font reproduces the same layout.",
+    "files": [
+      {
+        "path": "walkthrough.webp",
+        "bytes": 158984,
+        "sha256": "19a5eaf1606fb77d75c944acf92c86b84121a1ea81491ee0d7ed4bdf8e997f1c"
+      },
+      {
+        "path": "walkthrough-mobile.webp",
+        "bytes": 150840,
+        "sha256": "d820f772f5cefbfd93b868af99e7e3b706b8b0e67c120f110c0b3cbcb86a2f0b"
       }
     ]
   }
